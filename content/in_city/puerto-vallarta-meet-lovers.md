@@ -1,7 +1,8 @@
 +++
-title = 'Puerto Vallarta Meet Lovers'
+title = 'В городе Пуэрто-Вайарта'
 date = 2024-01-27T13:39:44-06:00
-draft = true
+draft = false
+tags = ["short","в городе"]
 
 +++
 
