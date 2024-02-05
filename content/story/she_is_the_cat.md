@@ -3,6 +3,7 @@ title = 'Она была кошкой'
 date = 2024-01-28T20:40:08-06:00
 draft = false
 tags = ["story","каждый день"]
+featured_image = "/images/0005.jpg"
 +++
 
 Конечно же. 

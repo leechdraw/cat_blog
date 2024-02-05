@@ -3,7 +3,7 @@ title = 'Cat That Love Coffee'
 date = 2024-01-27T13:40:30-06:00
 draft = false
 tags = ["story","каждый день"]
-featured_image = "/images/img01.jpg"
+featured_image = "/images/0002.jpg"
 +++
 
 О коте, который очень любил кофе
