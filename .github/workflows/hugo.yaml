@@ -71,16 +71,25 @@ jobs:
     runs-on: ubuntu-latest
     needs: deploy
     steps:
+      - name: Get List Of Files
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v42
+        with:
+          since_last_remote_commit: true
+          files: 'content'
+
       - name: send telegram message on push
         uses: appleboy/telegram-action@master
+        if: steps.changed-markdown-files.outputs.added_files_count != '0'
         with:
           to: ${{ secrets.TG_GROUP }}
           token: ${{ secrets.TG_KEY }}
           message: |
-            ${{ github.actor }} created commit:
-            Commit message: ${{ github.event.commits[0].message }}
+            Кажется, выложили новый пост!
+            Скорее бежим проверять!
             
-            Repository: ${{ github.repository }}
-            
-            See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
       
