@@ -3,8 +3,13 @@ languageCode = 'en-us'
 title = 'Cat blog'
 theme = 'ananke'
 SectionPagesMenu = "main"
-Paginate = 3 # this is set low for demonstrating with dummy content. Set to a higher number
+Paginate = 5 # this is set low for demonstrating with dummy content. Set to a higher number
 mainSections = "story"
 
 [services.disqus]
 shortname = 'leechdraw'
+
+[params]
+custom_css = ["css/main.css"]
+recent_posts_number = 5
+show_reading_time = true
