@@ -35,7 +35,7 @@ jobs:
         uses: tj-actions/changed-files@v42
         with:
           since_last_remote_commit: true
-          files: 'content'
+          files: 'content/**'
 
       - name: send telegram message on push
         uses: appleboy/telegram-action@master
