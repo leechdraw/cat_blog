@@ -64,40 +64,6 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v3
+        uses: actions/deploy-pages@v4
 
-  tg_push:
-    name: tg-push
-    runs-on: ubuntu-latest
-    needs: deploy
-    steps:
-      - name: Get List Of Files
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - name: Get changed files
-        id: changed-files
-        uses: tj-actions/changed-files@v42
-        with:
-          since_last_remote_commit: true
-          files: 'content/story/**'
-
-      - name: Run step if any file(s) in the docs folder change
-        if: steps.changed-files-specific.outputs.any_changed == 'true'
-        env:
-          ALL_CHANGED_FILES: ${{ steps.changed-files-specific.outputs.all_changed_files }}
-        run: |
-          echo "One or more files in the docs folder has changed."
-          echo "List all the files that have changed: $ALL_CHANGED_FILES"
-
-      - name: send telegram message on push
-        uses: appleboy/telegram-action@master
-        if: steps.changed-markdown-files.outputs.added_files_count != '0'
-        with:
-          to: ${{ secrets.TG_GROUP }}
-          token: ${{ secrets.TG_KEY }}
-          message: |
-            Кажется, выложили новый пост!
-            Скорее бежим проверять!
-            
-      
+  
